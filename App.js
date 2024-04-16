@@ -14,7 +14,7 @@ mongoose.connect(CONNECTION_STRING);
 const app = express();
 app.use(cors({
   credentials: true,
-  origin: process.env.FRONTEND_URL
+  origin: 'https://a6--preeminent-conkies-939abe.netlify.app'
 }
 ));
 app.use(express.json());
@@ -22,6 +22,12 @@ const sessionOptions = {
   secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: false,
+  proxy: true,
+  cookie: {
+        sameSite: 'none',
+        secure: true,
+        domain: "https://kanbas-node-server-app-1-tsx5.onrender.com"
+    }
 };
 if (process.env.NODE_ENV !== "development") {
   sessionOptions.proxy = true;
@@ -40,7 +46,7 @@ app.use(
     cookie: {
       sameSite: "none",
       secure: true,
-      domain: "kanbas-server-app-2.onrender.com",
+      domain: "kanbas-node-server-app-r0og.onrender.com",
     },
   })
 );
