@@ -46,7 +46,7 @@ app.use(
     cookie: {
       sameSite: "none",
       secure: true,
-      domain: "kanbas-node-server-app-r0og.onrender.com",
+        domain: "kanbas-node-server-app-1-tsx5.onrender.com",
     },
   })
 );
